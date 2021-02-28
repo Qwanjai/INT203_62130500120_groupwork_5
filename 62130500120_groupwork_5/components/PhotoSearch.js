@@ -1,12 +1,11 @@
 app.component("photo-search", {
 	props: {
 		searchButton: Boolean,
-		search: "",
 	},
 	template:
 		/*html*/
 		` <div class="flex items-center justify-between bg-black text-white h-10">
-    <a v-on:click="searchButton" href="#">
+    <a v-on:click="searchButton=true" href="#">
         <span class="material-icons ml-28"> search </span>
     </a>
     <div v-if="searchButton" class="">
@@ -32,12 +31,20 @@ app.component("photo-search", {
 	},
 	method: {
 		searchButton() {
-			this.search = "";
-			this.$emit("search-button");
-			this.$emit("search-picture", "");
+			this.searchButton = !searchButton;
+			this.$emit("search-button", true);
 		},
 		searchPicture() {
-			this.$emit("search-picture", this.search);
+			this.search = "";
+			this.$emit("search-picture", search);
 		},
 	},
+	// computed: {
+	// 	filteredList() {
+	// 		this.cloneGallery = this.gallerys.filter((gallery) => {
+	// 			return gallery.title.toLowerCase().includes(this.search.toLowerCase());
+	// 		});
+	// 		this.$emit("cloneGallery", cloneGallery);
+	// 	},
+	// },
 });

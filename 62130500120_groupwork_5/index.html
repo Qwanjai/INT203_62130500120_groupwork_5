@@ -36,21 +36,23 @@
 				<photo-search
 					:search="search"
 					@search-button="searchButton"
-					@search-picture="searchPicture"
+					@search-picture="searchPicture()"
 				></photo-search>
 				<div class="m-5">
-					<photo-view
+					<!-- <photo-view
 						:enlargeImage="enlargeImage"
 						:cloneGallery="cloneGallery"
 						:indexGallery="indexGallery"
 						@enlarge-image="showLargeImage"
-					></photo-view>
+					></photo-view> -->
 					<photo-item
-						:cloneGallery="cloneGallery"
+						:gallerys="gallerys"
 						:enlargeImage="enlargeImage"
 						@return-index="returnIndex"
-						@enlarge-image="showLargeImage"
-					></photo-item>
+						@show-largeimage="showLargeImage() "
+					>
+						></photo-item
+					>
 				</div>
 			</div>
 		</div>
